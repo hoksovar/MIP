@@ -37,22 +37,22 @@ void hladaj ( char pole[][MAX_SIZE], int x, int y ) {
 	pole[y][x] = '*'; 
 		
 	if( x+1 >= s || y+1 >= d ) {	
-	riesenie = 1;
-	vypis( pole );		
-	return;
+		riesenie = 1;
+		vypis( pole );		
+		return;
 	}
 	
 	if ( riesenie == 1 )	
 		return;
 
 	if( pole[y+1][x] == '.' )	
-	hladaj ( pole, x, y+1 );
+		hladaj ( pole, x, y+1 );
 	if( y > 0 && pole[y-1][x] == '.' )
-	hladaj ( pole, x, y-1 );
+		hladaj ( pole, x, y-1 );
 	if( pole[y][x+1] == '.' )
-	hladaj ( pole, x+1, y );
+		hladaj ( pole, x+1, y );
 	if( x > 0 && pole[y][x-1] == '.' )
-	hladaj ( pole, x-1, y );
+		hladaj ( pole, x-1, y );
 	pole[y][x] = '.';	
 	return;
 }
@@ -61,15 +61,15 @@ void najdi ( char pole[][MAX_SIZE] ){
 	int v = zhora( pole );	
 
 	if( v != -1 ) {	
-	hladaj( pole, v, 0 );
+		hladaj( pole, v, 0 );
 	}
 	else { 
 		v = zlava( pole );	
 		if( v != -1 ) 
-		hladaj( pole, 0, v ); 
+			hladaj( pole, 0, v ); 
 		else {
-		printf("Nenaslo v do bludiska!\n");
-		return;
+			printf("Nenaslo v do bludiska!\n");
+			return;
 		}
 	}
 
@@ -82,17 +82,17 @@ int main (int argc, char *argv[])
 	
 	while( read(STDIN_FILENO, &z, 1) > 0) { 
 		if( z == '-' ) {	
-		if( riesenie == 0 ) {
-		d = r;		
-		najdi( pole );
-	    if( riesenie == 0 ) {
+			if( riesenie == 0 ) {
+				d = r;		
+				najdi( pole );
+				if( riesenie == 0 ) {
 					printf("Riesenie tohto bludiska nebolo najdene!\n");
 					riesenie = 1;			
 				}
-			printf("----\n");
-			r = 0;	
-			st = 0;	
-			continue;			
+				printf("----\n");
+				r = 0;	
+				st = 0;	
+				continue;			
 			}
 			else continue;
 		}
@@ -103,7 +103,7 @@ int main (int argc, char *argv[])
 		
 		if( z == '\n' ) {
 			if( st == 0 )
-			continue;
+				continue;
 			r = r + 1;		
 			s = st;		
 			st = 0;		
@@ -119,3 +119,4 @@ int main (int argc, char *argv[])
 		printf("Riesenie tohto bludiska nebolo najdene!\n");
 	return 0;
 }
+
