@@ -131,7 +131,7 @@ int main (int argc, char *argv[])
 	d = r;
 	najdi( pole );	
 	if( riesenie == 0 ) 
-		printf("Riesenie tohto bludiska nebolo najdene!\n");
+		printf("Riesenie tohto bludiska nebolo najdene !\n");
 	return 0;
 }
 
