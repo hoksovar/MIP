@@ -14,6 +14,7 @@ int zhora ( char pole[][MAX_SIZE] ) {
 	}
 	return -1;
 }
+
 int zlava ( char pole[][MAX_SIZE] ) {	
 	int n;
 	for( n = 0; n < d ; n++ ) {
@@ -22,6 +23,7 @@ int zlava ( char pole[][MAX_SIZE] ) {
 	}
 	return -1;
 }
+
 void vypis ( char pole[][MAX_SIZE] ) {
 	int n, m;
 	for( n = 0; n < d; n++ ) {	
@@ -74,6 +76,9 @@ void najdi ( char pole[][MAX_SIZE] ){
 	}
 
 }
+
+
+
 int main (int argc, char *argv[])
 {
 	char z;
@@ -105,10 +110,20 @@ int main (int argc, char *argv[])
 			if( st == 0 )
 				continue;
 			r = r + 1;		
+			if( r >= MAX_SIZE ) {
+				printf("Prekrocena maximalna veľkosť bludiska\n");
+				return 0;
+			}
 			s = st;		
 			st = 0;		
 			continue;
+		}	
+
+		if( st >= MAX_SIZE ) {
+			printf("Prekrocena maximalna veľkost bludiska\n");
+			return 0;
 		}
+
 		pole[r][st] = z;	
 		st = st + 1;	
 		continue;
@@ -119,4 +134,5 @@ int main (int argc, char *argv[])
 		printf("Riesenie tohto bludiska nebolo najdene!\n");
 	return 0;
 }
+
 
